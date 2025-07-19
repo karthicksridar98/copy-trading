@@ -32,7 +32,7 @@ function App() {
 
   const fetchAUM = async () => {
     try {
-      const res = await axios.get("/api/leads");
+      const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/leads`);
       setAumList(res.data);
     } catch (err) {
       console.error("Failed to fetch AUM", err);
@@ -42,7 +42,7 @@ function App() {
   const checkIfActive = async () => {
     try {
       if (!copierApiKey) return;
-      const res = await axios.post("/api/is-active", {
+      const res = await axios.post(`${process.env.REACT_APP_API_URL}/api/is-active`, {
         copier_key: copierApiKey,
       });
       if (res.data.active) {
@@ -55,7 +55,7 @@ function App() {
 
   const fetchOrders = async () => {
     try {
-      const res = await axios.post("/api/order-log", {
+      const res = await axios.post(`${process.env.REACT_APP_API_URL}/api/order-log`, {
         copier_key: copierApiKey,
         copier_secret: copierApiSecret,
       });
@@ -68,7 +68,7 @@ function App() {
 
   const fetchPositions = async () => {
     try {
-      const res = await axios.post("/api/copier-positions-full", {
+      const res = await axios.post(`${process.env.REACT_APP_API_URL}/api/copier-positions-full`, {
         copier_key: copierApiKey,
         copier_secret: copierApiSecret,
       });
@@ -81,7 +81,7 @@ function App() {
 
   const fetchLTPs = async () => {
     try {
-      const res = await axios.get("/api/ltp");
+      const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/ltp`);
       setLtpMap(res.data);
     } catch (err) {
       console.log("LTP fetch failed");
@@ -90,7 +90,7 @@ function App() {
 
   const handleCopy = async () => {
     try {
-      const res = await axios.post("/api/start-copy", {
+      const res = await axios.post(`${process.env.REACT_APP_API_URL}/api/start-copy`, {
         lead_id: selectedLead.id,
         copier_key: copierApiKey,
         copier_secret: copierApiSecret,
@@ -108,7 +108,7 @@ function App() {
   };
 
   const handleStop = async () => {
-    await axios.post("/api/stop-copy", {
+    await axios.post(`${process.env.REACT_APP_API_URL}/api/stop-copy`, {
       copier_key: copierApiKey,
       copier_secret: copierApiSecret,
     });
