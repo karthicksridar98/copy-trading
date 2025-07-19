@@ -1,11 +1,11 @@
-# API Keys and Secrets - DO NOT UPLOAD
-traders.py
-ltp_socket.py
+# # API Keys and Secrets - DO NOT UPLOAD
+# traders.py
+# ltp_socket.py
 
-# Temporary Data Files
-ltp.json
+# # Temporary Data Files
+# ltp.json
 
-# Python virtual environment
-venv/
-*.pyc
-__pycache__/
+# # Python virtual environment
+# venv/
+# *.pyc
+# __pycache__/
